@@ -1,0 +1,7 @@
+<h2>Add New Match</h2>
+<input placeholder="Team A" [(ngModel)]="newMatch.teamA" />
+<input placeholder="Team B" [(ngModel)]="newMatch.teamB" />
+<input placeholder="Time" [(ngModel)]="newMatch.time" />
+<input type="number" placeholder="Odds A" [(ngModel)]="newMatch.oddsA" />
+<input type="number" placeholder="Odds B" [(ngModel)]="newMatch.oddsB" />
+<button (click)="addMatch()">Add Match</button>

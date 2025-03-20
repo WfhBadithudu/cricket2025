@@ -1,0 +1,21 @@
+<h2>Today's Matches</h2>
+<div *ngFor="let match of matches">
+  <p>{{ match.teamA }} vs {{ match.teamB }} - {{ match.time }}</p>
+  <p>Odds: {{ match.teamA }} ({{ match.oddsA }}) | {{ match.teamB }} ({{ match.oddsB }})</p>
+
+  <select [(ngModel)]="selectedBets[match.id]?.team">
+    <option [value]="match.teamA">{{ match.teamA }}</option>
+    <option [value]="match.teamB">{{ match.teamB }}</option>
+  </select>
+  <input type="number" placeholder="Bet Amount" [(ngModel)]="selectedBets[match.id]?.amount" />
+  <button (click)="placeBet(match)">Place Bet</button>
+
+  <div *ngIf="match.bets?.length">
+    <h4>Bets Placed:</h4>
+    <ul>
+      <li *ngFor="let bet of match.bets">
+        {{ bet.user }} bet {{ bet.amount }} on {{ bet.team }}
+      </li>
+    </ul>
+  </div>
+</div>
